@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- changing the display value from the color options on button click -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Working with javascript select box</title>
+<script type="text/javascript">
+
+function showAllOptions()
+{
+	alert("inside");
+	var x = document.getElementById("colors"); 
+	for (var i = 0; i < x.length; i++)
+	{ 
+		alert(x.options[i].text); 
+	}
+}
+<!--
+function readTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
+
+//usage:
+readTextFile("/Users/Documents/workspace/test.json", function(text){
+    var data = JSON.parse(text);
+    console.log(data);
+});
+-->
+</script>
+</head>
+<body>
+<select id="colors">
+ <option value="1">Red</option> 
+ <option value="2">Blue</option> 
+ <option value="3">Green</option> 
+ <option value="4">Yellow</option>
+  <option value="5">Orange</option> 
+</select>
+  <br><br> <button onclick="showAllOptions()">Set selected value</button>
+
+</body>
+</html>

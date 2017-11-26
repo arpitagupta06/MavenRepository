@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+oo = {};
+oo.refreshInterval = 1000;
+//oo.fileToRequest = 'config.txt';
+
+oo.loadList = function() {
+   
+    var xmlhttp = new XMLHttpRequest();
+   xmlhttp.onreadystatechange = function() {
+	   alert(xmlhttp.status);
+	   
+     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+       var data = xmlhttp.responseText; // use JSON.parse if properties file is formatted as json
+       alert(data);
+       //document.getElementById('env').value = data; // use like this
+       }
+     }
+   xmlhttp.open("GET", "cities.properties", true);
+   xmlhttp.send();
+}
+
+window.addEventListener('load', function() {      
+    oo.loadList();
+    // Refresh the select box.
+    setInterval(oo.loadList, oo.refreshInterval);
+  });
+ 
+</script>
+</head>
+<body>
+<p> Select the environment </p>
+  <br>
+  <select name="env" id="env">
+  
+  </select>
+
+</body>
+</html>

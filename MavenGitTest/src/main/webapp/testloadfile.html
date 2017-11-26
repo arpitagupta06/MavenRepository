@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+oo = {};
+oo.refreshInterval = 1000;
+//oo.fileToRequest = 'config.txt';
+
+oo.loadList = function() {
+    // alert("in onload");
+     //var xhr = new XMLHttpRequest(),
+     var dropdown = document.getElementById("env");
+     var strUser = dropdown.options[dropdown.selectedIndex].value;
+     alert(strUser);  
+ <!--    lines = [], i, count, line, item;
+
+     xhr.open('GET', '/cities.properties');
+     xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4 && xhr.status == 200) {
+            if (xhr.responseText) {
+               dropdown.innerHtml = "";
+               lines = xhr.responseText.split('/\n|\r\n/');
+               for(i=0,count = lines.length; i < count; i+ = 1){
+                   line = lines[i].split('=');
+                   item = document.createElement('option');
+                   item.text = line[1];
+                   item.value = line[0];
+                   dropdown.appendChild(item);
+               }                    
+            }
+         }
+     }
+     xhr.send();
+-->  
+   }
+    window.addEventListener('load', function() {      
+       oo.loadList();
+       // Refresh the select box.
+       setInterval(oo.loadList, oo.refreshInterval);
+     });
+</script>
+</head>
+<body>
+<p> Select the environment </p>
+  <br>
+  <select name="env" id="env">
+  <option value="1" selected="selected">test1</option>
+  </select>
+
+</body>
+</html>
